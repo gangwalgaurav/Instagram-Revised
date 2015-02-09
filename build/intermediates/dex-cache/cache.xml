@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/gangwal/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.5/77bf7cacf9cefe19dc105e5425d2eb1bb5285881/android-async-http-1.4.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="77bf7cacf9cefe19dc105e5425d2eb1bb5285881">
+        <dex dex="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.5-417b0c3017809597e26b57ca80465b7e7055b584.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-cbd0cb0a25948cf01ce0e466faa3f984f96c415a.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-bae0a00fcf563971889839e515cfa4ed2d38e080.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/pre-dexed/debug/classes-45e9f3e52467b432c7315cfe3071ab5dafcce39e.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex dex="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-7d9a1938c7c7b3b2cfeb3cf828fb26426bec28e8.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-9612ab27e5f9d3b6b77a9d3118b88807dbea559d.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/pre-dexed/debug/classes-a3a759df3c861d4737cb5ac26b4f8e2a05525bf8.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/1.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b2f7dddedcdb3facde33de103dcc32b10c43b92e">
+        <dex dex="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/pre-dexed/debug/classes-e7c081ff33844e1967bf1dbff3ffef826e99bdc8.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/1.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b2f7dddedcdb3facde33de103dcc32b10c43b92e">
+        <dex dex="/Users/gangwal/Desktop/InstagramClient/app/build/intermediates/pre-dexed/debug/classes-b5e96a2cf94dba3d77ef009b349592c393d067fa.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/pre-dexed/debug/classes-1877d43e49e8b2dc0a442372c8bac7acaecf7c11.jar" />
+    </item>
+    <item
+        jar="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/gangwal/Desktop/Assignment Backup/0208 630pm/InstagramClient/app/build/intermediates/pre-dexed/debug/classes-35926de0ad1c7a91b5cd71826e9ff47dcfeef5fb.jar" />
+    </item>
+
+</items>
