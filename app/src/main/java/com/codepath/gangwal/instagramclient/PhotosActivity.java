@@ -4,20 +4,17 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
-import android.support.v7.app.ActionBarActivity;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.codepath.gangwal.instagramclient.adapters.InstagramPhotoAdapter;
-import com.codepath.gangwal.instagramclient.fragments.TaskDialog;
 import com.codepath.gangwal.instagramclient.pojo.Comment;
 import com.codepath.gangwal.instagramclient.pojo.InstagramPhoto;
 import com.loopj.android.http.AsyncHttpClient;
@@ -35,7 +32,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class PhotosActivity extends ActionBarActivity {
+public class PhotosActivity extends FragmentActivity {
 
     private static final String CLIENT_ID="abd3ed67ab1d4d508e753f1b5787175d";
     private static final String TAG = PhotosActivity.class.getSimpleName();
@@ -43,17 +40,16 @@ public class PhotosActivity extends ActionBarActivity {
     InstagramPhotoAdapter aPhotos;
     private ListView lvPhotos;
     private ImageView ivLike;
-    boolean liked =false;
     JSONArray photosJSON = null;
     private SwipeRefreshLayout swipeContainer;
-    private TextView tvViewAllComments;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
-
+        getActionBar().setDisplayShowTitleEnabled(false);
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new OnRefreshListener() {
@@ -75,7 +71,7 @@ public class PhotosActivity extends ActionBarActivity {
 
 
         lvPhotos = (ListView) findViewById(R.id.lvPhotos);
-        tvViewAllComments = (TextView) findViewById(R.id.tvViewAllComment);
+//        tvViewAllComments = (TextView) findViewById(R.id.tvViewAllComment);
 
 //        //Display something if the View is empty for some reason.
 //        RelativeLayout empty=(RelativeLayout)findViewById(R.id.empty);
@@ -85,67 +81,8 @@ public class PhotosActivity extends ActionBarActivity {
         aPhotos = new InstagramPhotoAdapter(this, 0, photos);
 
         lvPhotos.setAdapter(aPhotos);
-//        fetchpopularPhotos(0);
-//        setupSingleClickListner();
-    }
-    public void clickNew(View v)
-    {
-        //TODO update this logic
-        ivLike = (ImageView)findViewById(R.id.ivLike);
-            ivLike.setImageResource(R.drawable.feed_button_like_active);
-
     }
 
-
-    /**
-     * Edit the task on Single click
-     */
-//    private void setupSingleClickListner() {
-//        lvPhotos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                String text = photos.get(position).getComment1().toString();
-//                try {
-//                    JSONArray comments = photosJSON.getJSONObject(position).getJSONObject("comments").getJSONArray("data");
-//                    showAddDialog(position, photos.get(position),comments);
-////                Toast.makeText(this,"Toast ID " ,Toast.LENGTH_LONG).show();
-//                    Log.i(TAG,"SClicked id" + id + " position " + position+ " "  +text);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        });
-//    }
-
-//    private void setupViewAllCommentsListener() {
-//        tvViewAllComments.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                String text = photos.get(position).getComment1().toString();
-//                try {
-//                    JSONArray comments = photosJSON.getJSONObject(position).getJSONObject("comments").getJSONArray("data");
-//                    showAddDialog(position, photos.get(position), comments);
-////                Toast.makeText(this,"Toast ID " ,Toast.LENGTH_LONG).show();
-//                    Log.i(TAG, "SClicked id" + id + " position " + position + " " + text);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//    }
-
-    private void showAddDialog(int index, InstagramPhoto item,JSONArray comments) {
-        TaskDialog dailog = TaskDialog.
-                getInstance(item, comments,getSupportFragmentManager());
-        dailog.show(getSupportFragmentManager(),"");
-    }
     private void fetchpopularPhotos(int page) {
         final Geocoder gCode = new Geocoder(this, Locale.ENGLISH);
     /* Client Id abd3ed67ab1d4d508e753f1b5787175d
@@ -171,11 +108,11 @@ public class PhotosActivity extends ActionBarActivity {
                     for (int i = 0; i < photosJSON.length(); i++) {
                         JSONObject photoJSON = photosJSON.getJSONObject(i);
                         InstagramPhoto photo = new InstagramPhoto();
-                        photo.setCaption(photoJSON.getJSONObject("caption").getString("text"));
-                        photo.setUsername(photoJSON.getJSONObject("user").getString("username"));
+                        String userName  = photoJSON.getJSONObject("user").getString("username");
+                        photo.setUsername(userName);
                         photo.setImageUrl(photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url"));
                         photo.setLikesCount(photoJSON.getJSONObject("likes").getInt("count"));
-
+                        photo.setCaption(new Comment(userName, photoJSON.getJSONObject("caption").getString("text")));
                         commentCount = photoJSON.getJSONObject("comments").getInt("count");
 
                         photo.setCommentsCount(commentCount);

@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.gangwal.instagramclient.R;
+import com.codepath.gangwal.instagramclient.pojo.Comment;
 import com.makeramen.RoundedTransformationBuilder;
+import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
 import java.util.ArrayList;
@@ -18,39 +20,57 @@ import java.util.ArrayList;
 /**
  * Created by gangwal on 2/8/15.
  */
-public class CommentAdapter extends ArrayAdapter<String> {
+public class CommentAdapter extends ArrayAdapter<Comment> {
+
+    private class ViewHolder{
+        ImageView ivProfilePicture;
+        TextView tvCommentText;
+        TextView tvCreatedTime;
+    }
+
         private final Context context;
 
-        public CommentAdapter(Context context,  ArrayList<String> objects) {
-            super(context, R.layout.comments_view,objects );
+        public CommentAdapter(Context context,  ArrayList<Comment> objects) {
+            super(context, R.layout.comments_view,objects);
             this.context = context;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            String  comment = getItem(position);
+            Comment  comment = getItem(position);
+            final ViewHolder viewHolder;
+            if(convertView==null)
+            {
+                viewHolder = new ViewHolder();
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.comments_feed,parent,false);
+                //TODO Might need to reuse the old Views
+                viewHolder.tvCommentText = (TextView)convertView.findViewById(R.id.tvCComment);
+                viewHolder.tvCreatedTime = (TextView) convertView.findViewById(R.id.tvCCreatedTime);
+                viewHolder.ivProfilePicture = (ImageView)convertView.findViewById(R.id.ivCProfiePhoto);
+
+                convertView.setTag(viewHolder);
+            }  else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
 
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View rowView = inflater.inflate(R.layout.comments_feed, parent, false);
-            TextView textView = (TextView) rowView.findViewById(R.id.tvCComment);
-
-            ImageView ivProfilePicture = (ImageView) rowView.findViewById(R.id.ivCProfiePhoto);
-            ivProfilePicture.setImageResource(0);
             Transformation transformation = new RoundedTransformationBuilder()
                     .cornerRadiusDp(25)
                     .oval(false)
                     .build();
+            Picasso.with(getContext())
+                    .load(comment.getUserProfilePic())
+                    .placeholder(R.drawable.placeholder)
+                    .fit()
+                    .transform(transformation)
+                    .into(viewHolder.ivProfilePicture);
 
-//            Picasso.with(getContext())
-//                    .load(photo.getProfilePicUrl())
-//                    .fit()
-//                    .transform(transformation)
-//                    .into(viewHolder.ivProfilePicture);
-            textView.setText(Html.fromHtml(comment));
-            // change the icon for Windows and iPhone
 
-            return rowView;
+            viewHolder.tvCommentText.setText(Html.fromHtml(comment.toString().trim()));
+            viewHolder.tvCreatedTime.setText(Html.fromHtml(comment.getCreatedTime()));
+
+            return convertView;
         }
     }
 

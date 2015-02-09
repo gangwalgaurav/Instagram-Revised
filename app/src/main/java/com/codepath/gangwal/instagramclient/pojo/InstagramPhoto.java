@@ -8,7 +8,7 @@ import org.json.JSONArray;
 
 public class InstagramPhoto {
     public String username;
-    public String caption;
+    public Comment caption;
     public String imageUrl;
     public int likesCount =0;
     public int imageHeight;
@@ -79,11 +79,11 @@ public class InstagramPhoto {
         this.username = username;
     }
 
-    public String getCaption() {
+    public Comment getCaption() {
         return caption;
     }
 
-    public void setCaption(String caption) {
+    public void setCaption(Comment caption) {
         this.caption = caption;
     }
 

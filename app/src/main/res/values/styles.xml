@@ -1,8 +1,22 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    </style>
+    <style name="MyAppActionBarTheme" parent="android:Theme.Holo.Light">
+       <item name="android:actionBarStyle">@style/MyApp.ActionBar</item>
     </style>
 
+    <!-- Bonus: if you want to style whole Action Bar, not just the menu -->
+    <style name="MyApp.ActionBar" parent="android:Widget.Holo.Light.ActionBar.Solid">
+        <!-- Blue background color & black bottom border -->
+        <item name="android:background">@drawable/instagram</item>
+        <item name="android:icon">@android:color/transparent</item>
+    </style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <!--<item name="android:background">#2D5B81</item>-->
+        <item name="android:background">@drawable/instagram</item>
+        <item name="android:icon">@android:color/transparent</item>
+
+    </style>
 </resources>

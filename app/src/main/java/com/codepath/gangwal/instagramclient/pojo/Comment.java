@@ -8,18 +8,21 @@ public class Comment {
     String username;
     String commentText;
     String createdTime;
+    String userProfilePic;
 
     public Comment(String username, String commentText) {
         this.username = username;
         this.commentText = commentText;
         this.createdTime = "";
+        this.userProfilePic="";
 
     }
 
-    public Comment(String username, String commentText, String createdTime) {
+    public Comment(String username, String commentText, String createdTime,String userProfilePic) {
         this.username = username;
         this.commentText = commentText;
-        this.createdTime = "<br> <font color=#A5A9AC>"+createdTime+" </font>";
+        this.createdTime = "<font color=#A5A9AC>"+createdTime+" </font>";
+        this.userProfilePic = userProfilePic;
     }
 
     public String getUsername() {
@@ -46,10 +49,29 @@ public class Comment {
         this.createdTime = createdTime;
     }
 
+    public String getUserProfilePic() {
+        return userProfilePic;
+    }
+
+    public void setUserProfilePic(String userProfilePic) {
+        this.userProfilePic = userProfilePic;
+    }
+
     @Override
     public String toString() {
+        //Logic to add/change tag to hyperlink
+        String commentTextWithName[] =  commentText.split(" ");
+        StringBuffer finalCommentText = new StringBuffer();
+        for(String word : commentTextWithName)
+        {
+            if (word.startsWith("@")) {
+                word = "<font color=#2D5B81> " + word + " </font>";
+            }
+            finalCommentText.append(word);
+
+        }
         return "<b> <font color=#2D5B81>"
                 + username +"</font>"+
-                "</b> '" + commentText +createdTime;
+                "</b> '" + finalCommentText;
     }
 }

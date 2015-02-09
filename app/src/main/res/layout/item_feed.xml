@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingBottom="20dp"
     >
 
     <ImageView
@@ -18,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:gravity="left"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#2D5B81"
         android:text="Username"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfiePhoto"
@@ -40,6 +42,7 @@
         android:textSize="13sp"
         android:layout_height="15dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#2D5B81"
         android:text=""
         android:paddingLeft="5dp"
         android:layout_above="@+id/ivPhoto"
@@ -50,19 +53,21 @@
     <ImageView
         android:id="@+id/ivCreatedTimeIcon"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
+        android:layout_width="15dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
         android:layout_above="@+id/tvLocation"
         android:layout_toLeftOf="@+id/tvCreatedTime"
-         />
+        android:paddingRight="3dp"
+        android:paddingBottom="3dp"/>
 
     <TextView
         android:id="@+id/tvCreatedTime"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#A5A9AC"
         android:textSize="15sp"
         android:gravity="right"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Time Elapsed"
         android:layout_alignParentTop="true"
@@ -153,7 +158,6 @@
 
     <ImageView
         android:id="@+id/ivLike"
-        android:onClick="clickNew"
 
         android:src="@drawable/feed_button_like"
         android:layout_width="25dp"
